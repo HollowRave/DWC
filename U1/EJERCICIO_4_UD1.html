@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <script>
+        /*
+        EJERCICIO 4_UD1: Haz una arrow function que devuelva el cubo del número pasado como parámetro
+        y pruébala desde nuestro proyecto JS Base. Escríbela primero en la forma habitual 
+        y luego la "traduces" a arrow function.
+        */
+
+        //Forma Habitual
+        function cubo(valor){
+            return valor*valor*valor;
+        }
+
+        let num = prompt("Dame un número");
+        alert("El cubo de " + num + " es " + cubo(num));
+
+        //Arrow Function
+        let cuboArrow = base => base * base * base;
+        
+        num = prompt("Dame un número");
+        alert("El cubo de " + num + " es " + cuboArrow(num));
+        
+
+    </script>
+</body>
+</html>

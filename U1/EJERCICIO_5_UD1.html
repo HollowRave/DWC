@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    <script>
+        /*
+        EJERCICIO 5_UD1: Haz un programa para que el usuario juegue a adivinar un número. 
+        Obtén un número al azar (busca por internet cómo se hace o simplemente guarda el número 
+        que quieras en una variable) y ve pidiendo al usuario que introduzca un número. 
+        Si es el que busca le dices que lo ha encontrado y si no le mostrarás si el número que busca 
+        el mayor o menor que el introducido. El juego acaba cuando el usuario encuentra el número o 
+        cuando pulsa en 'Cancelar' (en ese caso le mostraremos un mensaje de que ha cancelado el juego).
+        */
+
+        let random = Math.floor(Math.random()*9)+1;
+        let num = prompt("Adivina el número entre 1 y 10");
+        let acertado = false;
+
+        while(num!=random && num!=null){ 
+            if(num>random){
+                num = prompt("El número que buscas es menor");
+                acertado = false;
+            }else{
+                num = prompt("El número que buscas es mayor");
+                acertado = false;
+            }
+        }
+
+        if(num==random){
+            alert("Si, el número es " + random);
+        }
+        else{
+            alert("Juego  cancelado");
+        }
+    </script>
+</body>
+</html>

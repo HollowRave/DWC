@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    <script>
+        /*
+        Modifica la función que devuelve el cubo de un número para que compruebe si 
+        el parámetro pasado es un número entero. Si no es un entero o no es un número 
+        mostrará un alert indicando cuál es el problema y devolverá false.
+        */
+
+        function cubo(valor){
+            if(Number.isInteger(Number(valor))){
+                alert("El cubo de " + valor + " es " + valor * valor * valor);
+            }else if(isNaN(valor)){
+                alert(valor +" No es un número")
+                return false;
+            }else{
+                alert(valor + " No es un entero")
+                return false;
+            }
+        }
+
+        let num = prompt("Dame un número: ");
+        console.log(cubo(num));
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+    <script>
+        /*
+        EJERCICIO 6_UD1: El factorial de un número entero n es una operación matemática que 
+        consiste en multiplicar ese número por todos los enteros menores que él: 
+        n x (n-1) x (n-2) x ... x 1. 
+        Así, el factorial de 5 (se escribe 5!) vale 5! = 5 x 4 x 3 x 2 x 1 = 120. 
+        Haz un script que calcule el factorial de un número entero.
+        */
+
+        //Arrow Function que devuelve true si el número pasado por parámetro es un entero.
+        let entero = valor => {
+            if(Number.isInteger(Number(valor))){
+                return true;
+            }else{
+                return false;
+            }
+        };
+
+        //Función que calcula el factorial de un entero.
+        function factorial(num){
+            let result = num;
+            if(entero(num)){
+                for(i=num-1; i>1; i--){
+                    result = result * i;
+                }
+                return result;
+            }else{
+                return("No has introducido un número válido")
+            }
+        }
+
+        let valor = prompt("Introduzca un número entero");
+        alert(factorial(valor));
+        
+    </script>
+</body>
+</html>
