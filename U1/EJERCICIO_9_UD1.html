@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 9</title>
 </head>
+
 <body>
     <script>
         /*
         EJERCICIO 9_UD1: Modifica la función que quieras de calcular la nota media 
         para que devuelva la media con 1 decimal.
         */
+        
+        //for on
+        function notaMediaOn(notas) {
+            let sumaNotas = 0;
+            for (let nota of notas) {
+                sumaNotas += nota;
+            }
+            return sumaNotas / notas.length;
+        }
+
+        //Pruebas
+        let notas = [5, 3, 8, 4, 7];
+        console.log(notaMediaOn(notas));
     </script>
 </body>
+
 </html>

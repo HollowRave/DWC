@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 11</title>
 </head>
+
 <body>
     <script>
         /*
@@ -15,6 +17,34 @@
         Por ejemplo, si el resto es 0 la letra será la T y si es 4 será la G. 
         Prueba la función con tu DNI
         */
+
+        //Funciones
+        function verificarDni(dni) {
+            const letras = 'TRWAGMYFPDXBNJZSQVHLCKE'; 
+
+            if (dni.length == 9) { //Miramos la longitud
+                let numeroDni = parseInt(dni); //Usando 'parseInt()' en el String 'dni' nos devolvera un entero quitando la letra
+                let letraDni = dni.charAt(8).toUpperCase();
+                let letraValida = letras.charAt(numeroDni % 23); //El resto de la parte numérica del dni entre 23 nos dará un número el cuál es la posicion de la letra en válida en la constante 'letras'
+
+                if (letraDni == letraValida) { //Comprobamos que la letra del DNI sea correcta
+                    alert("DNI válido");
+                    return true;
+                    
+                } else {
+                    alert("La letra de su DNI no es correcta, debería ser " + letraValida + ".");
+                    return false;
+                }
+            } else {
+                alert("El Dni introducido no es válido, necesita tener 8 números y 1 letra: ej.12345678Z");
+                return false;
+            }
+        }
+
+        //Pruebas
+        let dni = prompt("Inserte tu DNI:");
+        verificarDni(dni);
     </script>
 </body>
+
 </html>
