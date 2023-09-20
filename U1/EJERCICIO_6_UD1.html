@@ -15,19 +15,10 @@
         Haz un script que calcule el factorial de un número entero.
         */
 
-        //Arrow Function que devuelve true si el número pasado por parámetro es un entero.
-        let entero = valor => {
-            if(Number.isInteger(Number(valor))){
-                return true;
-            }else{
-                return false;
-            }
-        };
-
         //Función que calcula el factorial de un entero.
         function factorial(num){
             let result = num;
-            if(entero(num)){
+            if(Number.isInteger(Number(num))){
                 for(i=num-1; i>1; i--){
                     result = result * i;
                 }
@@ -38,7 +29,7 @@
         }
 
         let valor = prompt("Introduzca un número entero");
-        alert(factorial(valor));
+        alert("El factorial de " + valor + " es " + factorial(valor) + ".");
         
     </script>
 </body>

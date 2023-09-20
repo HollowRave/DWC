@@ -16,24 +16,21 @@
         cuando pulsa en 'Cancelar' (en ese caso le mostraremos un mensaje de que ha cancelado el juego).
         */
 
-        let random = Math.floor(Math.random()*9)+1;
+        let random = Math.floor(Math.random()*10)+1;
         let num = prompt("Adivina el número entre 1 y 10");
         let acertado = false;
 
-        while(num!=random && num!=null){ 
+        while(num!=random && num!=null){  //Mientras el número no sea el mismo que quieres adivinar ni null(significa que has pulsado a cancelar) se seguira ejecutando
             if(num>random){
-                num = prompt("El número que buscas es menor");
-                acertado = false;
+                num = prompt("El número que buscas es menor"); //Vuelve a pedir que insertes el número y te da una pista
             }else{
                 num = prompt("El número que buscas es mayor");
-                acertado = false;
             }
         }
 
-        if(num==random){
+        if(num==random){ //Si al salir del bucle, el número es el mismo que random te te dice que has acertado
             alert("Si, el número es " + random);
-        }
-        else{
+        }else{ //Pero si has salido del bucle pero (num != random) quiere decir que has saslido del bucle por pulsar a 'Cancelar'
             alert("Juego  cancelado");
         }
     </script>
