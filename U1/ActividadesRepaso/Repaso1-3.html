@@ -1,27 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repaso 1.3 - Contraseña</title>
 </head>
+
 <body>
     <script>
-// Crea un programa que pida al usuario que introduzca una contraseña y compruebe si 
-// es o no segura. Para ello comprobará:
+        //ENUNCIADO
+        // Crea un programa que pida al usuario que introduzca una contraseña y compruebe si 
+        // es o no segura. Para ello comprobará:
 
-// - que su longitud sea mayor o igual de 8 caracteres
-// - que contiene alguna mayúscula
-// - que contiene alguna minúscula
-// - que contiene algún número
-// - que contiene alguno de estos caracteres: guión, barra baja, igual, asterisco, 
-//   mas, dólar, arroba o almohadilla
+        // - que su longitud sea mayor o igual de 8 caracteres
+        // - que contiene alguna mayúscula
+        // - que contiene alguna minúscula
+        // - que contiene algún número
+        // - que contiene alguno de estos caracteres: guión, barra baja, igual, asterisco, 
+        //   mas, dólar, arroba o almohadilla
 
-// Si cumple todos los requisitos se informará por consola que la contraseña introducida 
-// es segura. Si no cumple 1 o 2 se le dirá que es poco segura y si no cumple más de 2 
-// se le dirá que es una contraseña débil.
+        // Si cumple todos los requisitos se informará por consola que la contraseña introducida 
+        // es segura. Si no cumple 1 o 2 se le dirá que es poco segura y si no cumple más de 2 
+        // se le dirá que es una contraseña débil.
+
+        //FUNCIONES
+        function comprobarContraseña(contraseña) {
+            let seguridad = 0; //Nivel de seguridad
+            let arrayContra = contraseña.split(''); //Crea un array de caracteres a partir de la contraseña
 
 
+            //Cuantos más requisitos cumpla irá aumentando la seguridad
+            if (arrayContra.length >= 8)
+                seguridad++;
+            if (/[A-Z]/.test(contraseña)) //'/[A-Z]/' es una expresión regular que busca cualquier letra desde la A a la Z y '.test' comprueba que la expresión regular coincida con la cadena
+                seguridad++;
+            if (/[a-z]/.test(contraseña)) //Comprueba que contenga minúsculas
+                seguridad++;
+            if (/[-_=*+$@#]/.test(contraseña)) //Comprueba que contenga guión, barra baja, igual, asterisco, mas, dólar, arroba o almohadilla aumenta la seguridad en 1
+                seguridad++;
+            if (/[1-9]/.test(contraseña)) //Comprueba que contenga algún número
+                seguridad++;
+
+
+            if (seguridad == 5) { //Si cumple todos los requisitos se informará por consola que la contraseña introducida es segura.
+                console.log("La contraseña introducida es segura");
+            } else if (seguridad >= 4) { //Si no cumple 1 o 2 se le dirá que es poco segura
+                console.log("La contraseña introducida es poco segura");
+            } else{ //Si no cumple más de 2 se le dirá que es una contraseña débil
+                console.log("La contraseña introducida es débil");
+            } 
+        }
+        //PRUEBAS
+        let contraseña = prompt("Introduzca la contraseña:");
+        comprobarContraseña(contraseña);
     </script>
 </body>
+
 </html>
