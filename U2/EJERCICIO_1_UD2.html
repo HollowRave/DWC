@@ -18,6 +18,23 @@
         // - Quita los Kiwis y pon en su lugar Cerezas y Nísperos
         //   (debe quedar Peras, Cerezas, Nísperos, Plátanos, Naranjas, Sandía y Mandarinas)
 
+
+
+        //Creamos el array listaCompra 
+        let listaCompra = ['Peras', 'Manzanas', 'Kiwis', 'Plátanos', 'Mandarinas'];
+        console.log("Lista de la compra:\n" + listaCompra);
+
+        //Eliminamos 'Manzanas'
+        listaCompra.splice(1, 1);
+        console.log("Eliminamos Manzanas:\n" + listaCompra);
+
+        //Añadimos 'Naranjas' y 'Sandías' detras de 'Plátanos'
+        listaCompra.splice(3, 0, 'Naranjas', 'Sandías');
+        console.log("Añadimos Naranjas y Sandías detrás de Platanos:\n" + listaCompra);
+
+        //Quitamos los 'Kiwis' y dejamos en su lugar 'Cerezas' y 'Nísperos'
+        listaCompra.splice(1, 1, 'Cerezas', 'Nísperos');
+        console.log("Quitamos Kiwis y ponemos Cerezas y Nísperos en su lugar:\n" + listaCompra);
     </script>
 </body>
 

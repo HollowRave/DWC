@@ -9,7 +9,13 @@
     <script>
         // EJERCICIO 03_UD2: Dado un array con los días de la semana 
         // obtén todos los días que empiezan por 'M'
+
+        let semana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
         
+        //'.filter' recorre el array y devuelve lo que cumpla lacondicion
+        //Sacamos por consola los dias de la array que su primer caracter sea 'M'
+        console.log(semana.filter(dia => dia.charAt(0) == 'M'));
+
     </script>
 </body>
 </html>

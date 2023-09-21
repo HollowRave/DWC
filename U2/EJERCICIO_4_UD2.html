@@ -10,6 +10,11 @@
         // EJERCICIO 04_UD2: Dado un array con los días de la semana 
         // obtén el primer día que empieza por 'M'
         
+        let semana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+        //'.find' recorre la array hasta encontrar un elemento que cumpla la condicion
+        let  primerDiaM = semana.find(dia => dia.charAt(0) == 'M');
+        console.log(primerDiaM);
     </script>
 </body>
 </html>
