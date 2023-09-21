@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - UD2</title>
+</head>
+<body>
+    <script>
+        // EJERCICIO 02_UD2: Haz una función que ordene las notas de un array 
+        // pasado como parámetro. Si le pasamos [4,8,3,10,5] debe devolver [3,4,5,8,10].
+
+        let notas = [4,8,3,10,5];
+        let notasOrdenadas = notas.sort(((nota1, nota2) => nota1-nota2)); //Arrow function
+        console.log(notasOrdenadas);
+
+    </script>
+</body>
+</html>
