@@ -30,15 +30,18 @@
         // - en la consola las horas y los minutos se deben mostrar siempre con 2 números (09:03 y no 9:3)
 
         //FUNCIONES
-        function obtenerHoraValida(promptMensaje) {
-            while (true) {
-                const hora = prompt(promptMensaje);
-                const partesHora = hora.split(':');
+        function comprobarHora(horaMinutos) {//El parámetro es el promptS
+            while (true) { //Este while hará que se ejecute hastaque se salga con el return que será cuando tengamos una hota valida
+                let hora = prompt(horaMinutos);
+                let partesHora = hora.split(':');
 
-                if (partesHora.length === 2) {
-                    const horas = parseInt(partesHora[0]);
-                    const minutos = parseInt(partesHora[1]);
+                if (partesHora.length == 2) { //Comprobamos que se haya introducido horas y minutos
+                    let horas = parseInt(partesHora[0]);
+                    let minutos = parseInt(partesHora[1]);
 
+                    // Si horas es un número, minutos es un número, horas es mayor o igual a 0,
+                    // horas es menor a 24, minutos es mayor o igual a 0 y minutos es menor a 60 
+                    // la hora introducida es correcta
                     if (!isNaN(horas) && !isNaN(minutos) && horas >= 0 && horas < 24 && minutos >= 0 && minutos < 60) {
                         return [horas, minutos];
                     }
@@ -48,12 +51,12 @@
             }
         }
 
-        function obtenerIntervaloValido(promptMensaje) {
+        function obtenerIntervaloValido(intervaloMinutos) {
             while (true) {
-                const intervalo = prompt(promptMensaje);
-                const minutos = parseInt(intervalo);
+                let intervalo = prompt(intervaloMinutos); //Pedimos el intervalo
+                let minutos = parseInt(intervalo);
 
-                if (!isNaN(minutos) && minutos > 0) {
+                if (!isNaN(minutos) && minutos > 0) { //Si minutos es un entero y es mayor a 0 devolvera los minutos
                     return minutos;
                 }
 
@@ -62,18 +65,20 @@
         }
 
         function mostrarHoras() {
-            const [horaInicio, minInicio] = obtenerHoraValida('Introduce la hora de inicio (HH:MM):');
-            const [horaFin, minFin] = obtenerHoraValida('Introduce la hora de finalización (HH:MM):');
-            const intervaloMinutos = obtenerIntervaloValido('Introduce el intervalo de minutos:');
+            let [horaInicio, minInicio] = comprobarHora('Introduce la hora de inicio (HH:MM):');
+            let [horaFin, minFin] = comprobarHora('Introduce la hora de finalización (HH:MM):');
+            let intervaloMinutos = obtenerIntervaloValido('Introduce el intervalo de minutos:');
 
             let horaActual = new Date(0, 0, 0, horaInicio, minInicio);
-            const horaFinDate = new Date(0, 0, 0, horaFin, minFin);
+            let horaFinDate = new Date(0, 0, 0, horaFin, minFin);
 
-            while (horaActual <= horaFinDate) {
-                const horaFormatada = horaActual.getHours().toString().padStart(2, '0');
-                const minutoFormatado = horaActual.getMinutes().toString().padStart(2, '0');
+            while (horaActual <= horaFinDate) {//Ejecutamos esta parte del codigo mientras la hora actual sea menor o igual a la hora final
+                //Formatemos la hora y minutos para que salgan con 2 digitos siempre
+                let horaFormatada = horaActual.getHours().toString().padStart(2, '0');
+                let minutoFormatado = horaActual.getMinutes().toString().padStart(2, '0');
                 console.log(`${horaFormatada}:${minutoFormatado}`);
 
+                //Ponemos la hora actual a la hora actual más el intervalo en minutos
                 horaActual.setMinutes(horaActual.getMinutes() + intervaloMinutos);
             }
         }
