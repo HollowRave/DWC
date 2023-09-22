@@ -17,10 +17,10 @@
 
         //Función que calcula el factorial de un entero.
         function factorial(num){
-            let result = num;
-            if(Number.isInteger(Number(num))){
+            let result = num; // Creamos una valor coja el valor introducido
+            if(Number.isInteger(Number(num))){ // Comprobamos que hayamos intrducido un número válido
                 for(i=num-1; i>1; i--){
-                    result = result * i;
+                    result = result * i; // Resultado es igual a el mismo * el número menor al introducido en cada iteración hasta llegara 1
                 }
                 return result;
             }else{
