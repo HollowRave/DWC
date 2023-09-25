@@ -1,24 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 10 - UD2</title>
 </head>
+
 <body>
     <script>
-// EJERCICIO 10_UD2: Crea 5 productos y guárdalos en un array. 
-// Crea las siguientes funciones (todas reciben ese array como parámetro):
+        // EJERCICIO 10_UD2: Crea 5 productos y guárdalos en un array. 
+        // Crea las siguientes funciones (todas reciben ese array como parámetro):
 
-// - prodsSortByName: devuelve un array con los productos ordenados alfabéticamente
-// - prodsSortByPrice: devuelve un array con los productos ordenados por importe
-// - prodsTotalPrice: devuelve el importe total del los productos del array, con 2 decimales
-// - prodsWithLowUnits: además del array recibe como segundo parámetro un nº 
-//   y devuelve un array con todos los productos de los que quedan menos de los unidades indicadas
-// - prodsList: devuelve una cadena que dice 'Listado de productos:' y en cada línea 
-//   un guión y la información de un producto del array
+        // - prodsSortByName: devuelve un array con los productos ordenados alfabéticamente
+        // - prodsSortByPrice: devuelve un array con los productos ordenados por importe
+        // - prodsTotalPrice: devuelve el importe total del los productos del array, con 2 decimales
+        // - prodsWithLowUnits: además del array recibe como segundo parámetro un nº 
+        //   y devuelve un array con todos los productos de los que quedan menos de los unidades indicadas
+        // - prodsList: devuelve una cadena que dice 'Listado de productos:' y en cada línea 
+        //   un guión y la información de un producto del array
 
+        //Clase Producto
+        class Producto{
+            constructor(nombre, precio, unidades){
+                this.nombre = nombre;
+                this.precio = precio;
+                this.unidades = unidades;
+            }
+        }
 
+        //Creamos los productos
+        let p1 = new Producto("Leche", 3.50, 2);
+        let p2 = new Producto("Patatas", 3.99, 1);
+        let p3 = new Producto("Agua", 2.50, 6);
+        let p4 = new Producto("Macarrones", 1.20, 3);
+        let p5 = new Producto("Portatil", 362.75, 1);
+
+        //Creamos un array y añadimos los productos
+        let listaProductos = [];
+        listaProductos.push(p1, p2, p3, p4, p5);
+
+        // - prodsSortByName: devuelve un array con los productos ordenados alfabéticamente
+        function prodsSortByName(listaProductos){
+            return listaProductos.sort((p1, p2) => p1.nombre.localeCompare(p2.nombre));
+        }
+
+        // - prodsSortByPrice: devuelve un array con los productos ordenados por importe
+        function prodsSortByPrice(listaProductos){
+            return listaProductos.sort((p1, p2) => p1 - p2.precio);
+        }
+
+        // - prodsTotalPrice: devuelve el importe total del los productos del array, con 2 decimales
+        function prodsTotalPrice(listaProductos){
+            return Number.parseFloat(listaProductos.reduce((p1, p2) => p1 += p2.precio, 0));
+        }
+
+        // - prodsWithLowUnits: además del array recibe como segundo parámetro un nº 
+        //   y devuelve un array con todos los productos de los que quedan menos 
+        //   de las unidades indicadas
+        function prodsWithLowUnits(){
+            let listaPocasUnidades
+            return
+        }
+
+        // - prodsList: devuelve una cadena que dice 'Listado de productos:' y en cada línea 
+        //   un guión y la información de un producto del array
+        
     </script>
 </body>
 </html>

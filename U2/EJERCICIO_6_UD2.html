@@ -13,6 +13,10 @@
         
         let semana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
+        //'some' devuelve un booleano dependiendo de que se cumpla la condición al menos una vez
+        console.log(semana.some(semana => semana.startsWith('S')));
+        //'every' devuelve un booleano si todos los elementos del array cumplen la condición
+        console.log(semana.every(semana => semana.endsWith('s')));
     </script>
 </body>
 </html>
