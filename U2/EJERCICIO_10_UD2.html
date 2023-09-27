@@ -40,6 +40,9 @@
         let listaProductos = [];
         listaProductos.push(p1, p2, p3, p4, p5);
 
+        console.log("Creado array 'listaProductos'");
+        console.log(listaProductos);
+
         // - prodsSortByName: devuelve un array con los productos ordenados alfabéticamente
         function prodsSortByName(listaProductos){
             return listaProductos.sort((p1, p2) => p1.nombre.localeCompare(p2.nombre));
@@ -47,25 +50,62 @@
 
         // - prodsSortByPrice: devuelve un array con los productos ordenados por importe
         function prodsSortByPrice(listaProductos){
-            return listaProductos.sort((p1, p2) => p1 - p2.precio);
+            return listaProductos.sort((p1, p2) => p2.precio - p1.precio);
         }
 
-        // - prodsTotalPrice: devuelve el importe total del los productos del array, con 2 decimales
+        // - prodsTotalPrice: devuelve el importe total de los productos del array, con 2 decimales
         function prodsTotalPrice(listaProductos){
-            return Number.parseFloat(listaProductos.reduce((p1, p2) => p1 += p2.precio, 0));
+            //Los productos están compuestos por precio y unidades, por eso para
+            //saber el precio total primero creamos con '.map' un array del 
+            //precio * unidad de cada producto
+            let precioCompra = listaProductos.map((producto)=>producto.unidades * producto.precio);
+            //Al final devolvemos con 'Number.parseFloat' (para que salga con decimales) y reduce
+            //que devolvera la suma de todos los componentes del array.
+            return Number.parseFloat(precioCompra.reduce((p1, p2) => p1 += p2, 0)).toFixed(2);
         }
+        
 
         // - prodsWithLowUnits: además del array recibe como segundo parámetro un nº 
         //   y devuelve un array con todos los productos de los que quedan menos 
         //   de las unidades indicadas
-        function prodsWithLowUnits(){
-            let listaPocasUnidades
-            return
+        function prodsWithLowUnits(listaProductos, num){
+            let listaPocasUnidades = [];
+            listaProductos.forEach(producto => {
+                if(producto.unidades < num){
+                    listaPocasUnidades.push(producto);
+                }
+            });
+            return listaPocasUnidades;
         }
 
         // - prodsList: devuelve una cadena que dice 'Listado de productos:' y en cada línea 
         //   un guión y la información de un producto del array
+        function prodsList(listaProductos){
+            let listado = "Listado de productos:\n";
+            listaProductos.forEach(producto => {
+                listado += "-\t" + producto.nombre + ", " + producto.precio + "€, " + producto.unidades + " unidades\n";
+            });
+            return listado;
+        }
         
+        //PRUEBAS
+        alert("Las pruebas salen en la consola");
+        console.log("");
+        console.log("Ordenar los productos por Nombre: ");
+        console.log(prodsSortByName(listaProductos));
+        console.log("");
+        console.log("Ordenar los productos por Precio: ");
+        console.log(prodsSortByPrice(listaProductos));
+        console.log("");
+        console.log("Precio total de los productos: ");
+        console.log(prodsTotalPrice(listaProductos));
+
+        console.log("");
+        let num = 2;
+        console.log("Precios con menos de " + num + " unidades: ");
+        console.log(prodsWithLowUnits(listaProductos, num));
+        console.log("");
+        console.log(prodsList(listaProductos));
     </script>
 </body>
 </html>
