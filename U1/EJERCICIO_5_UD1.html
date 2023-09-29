@@ -16,9 +16,9 @@
         cuando pulsa en 'Cancelar' (en ese caso le mostraremos un mensaje de que ha cancelado el juego).
         */
 
+        //Creamos una variable que almacene un número aleatorio entre 1 y 10
         let random = Math.floor(Math.random()*10)+1;
         let num = prompt("Adivina el número entre 1 y 10");
-        let acertado = false;
 
         while(num!=random && num!=null){  //Mientras el número no sea el mismo que quieres adivinar ni null(significa que has pulsado a cancelar) se seguira ejecutando
             if(num>random){

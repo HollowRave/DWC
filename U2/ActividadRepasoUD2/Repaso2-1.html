@@ -50,13 +50,13 @@
         // - aprobados(notas): devuelve un array con sólo los aprobados
         // - notaMedia(notas): devuelve la media de las notas redondeada a 2 decimales
         // - cambiaNotas(notas, incremento): devuelve un nuevo array con cada nota 
-        //   incrementada en el porcentaje indicado y redondeada a 2 decimales
-
-        // IMPORTANTE: Utilizaremos métodos de arrays en lugar de bucles. 
+        //   incrementada en el porcentajmétodos de arrays en lugar de bucles. 
         // No usaremos ningún for para recorrer los arrays. 
         // Siempre que sea posible usaremos Functional Programming.
 
-        //FUNCIONES
+        //FUNCIONESe indicado y redondeada a 2 decimales
+
+        // IMPORTANTE: Utilizaremos 
         function addItems(notas, item) {
             return [...notas, ...item.split(',').filter(value => !isNaN(value) && value >= 0 && value <= 10).map(Number)];
         }
@@ -74,14 +74,18 @@
         }
 
         function notaMedia(notas) {
-            const notasValidas = notas.filter(value => !isNaN(value) && value >= 0 && value <= 10);
-            if (notasValidas.length === 0) return 0;
-            const sum = notasValidas.reduce((acc, curr) => acc + curr, 0);
-            return parseFloat((sum / notasValidas.length).toFixed(2));
+            //Validamos las notas
+            let notasValidas = notas.filter(value => !isNaN(value) && value >= 0 && value <= 10);
+            if (notasValidas.length === 0){//Si no hay nada en notas validas la nota media es 0
+                return 0;
+            }else{//Calculamos la nota media y la sacamos como un float de máximo 2 decimales
+                let suma = notasValidas.reduce((total, nota) => total + nota, 0);
+                return parseFloat((suma / notasValidas.length).toFixed(2));
+            }
         }
 
-        function cambiaNotas(notas) {
-            return notas.map(value => Math.round(value * 1.10));
+        function cambiaNotas(notas, incremento) {
+            return notas.map(value => Math.round(value * incremento));
         }
 
         //PRUEBAS
@@ -94,19 +98,21 @@
             }
         } while (notasPrompt !== null);
 
+        //".join(', ')" devuelve un string con los elementos del array separados por el separador especificado
         console.log("Notas introducidas:", notas.join(', '));
         console.log("Notas válidas:", clearItems(notas).join(', '));
 
-        const primerSuspensoNota = primerSuspenso(notas);
+        let primerSuspensoNota = primerSuspenso(notas);
         console.log("El primer suspenso es:", primerSuspensoNota !== undefined ? primerSuspensoNota : "No hay suspensos");
 
-        const aprobadosNotas = aprobados(notas);
+        let aprobadosNotas = aprobados(notas);
         console.log("Hay", aprobadosNotas.length, "aprobados:", aprobadosNotas.join(', '));
 
-        const notaMediaValor = notaMedia(notas);
+        let notaMediaValor = notaMedia(notas);
         console.log("La nota media es:", notaMediaValor);
 
-        const notasFinales = cambiaNotas(notas);
+        let incremento = 1.10;
+        let notasFinales = cambiaNotas(notas, incremento);
         console.log("Las notas finales son:", notasFinales.join(', '));
     </script>
 </body>
