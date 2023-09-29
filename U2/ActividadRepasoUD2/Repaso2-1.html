@@ -57,35 +57,57 @@
         // Siempre que sea posible usaremos Functional Programming.
 
         //FUNCIONES
-        function addItems(notas, item){
-
+        function addItems(notas, item) {
+            return [...notas, ...item.split(',').filter(value => !isNaN(value) && value >= 0 && value <= 10).map(Number)];
         }
 
-        function clearItems(notas){
-
+        function clearItems(notas) {
+            return notas.filter(value => !isNaN(value) && value >= 0 && value <= 10).map(Number);
         }
 
-        function primerSuspenso(notas){
-
+        function primerSuspenso(notas) {
+            return notas.find(value => value < 5);
         }
 
-        function aprobados(notas){
-
+        function aprobados(notas) {
+            return notas.filter(value => value >= 5);
         }
 
-        function notaMedia(notas){
-
+        function notaMedia(notas) {
+            const notasValidas = notas.filter(value => !isNaN(value) && value >= 0 && value <= 10);
+            if (notasValidas.length === 0) return 0;
+            const sum = notasValidas.reduce((acc, curr) => acc + curr, 0);
+            return parseFloat((sum / notasValidas.length).toFixed(2));
         }
 
-        function cambiaNotas(notas){
-            
+        function cambiaNotas(notas) {
+            return notas.map(value => Math.round(value * 1.10));
         }
 
         //PRUEBAS
-        let notasPrompt
-        do{
+        let notasPrompt, notas = [];
+        do {
+            notasPrompt = prompt("Introduce una nota o varias separadas por coma (ej. 4.5, 6, 8.75)");
 
-        }while(notasPrompt != undefined);
+            if (notasPrompt !== null) {
+                notas = addItems(notas, notasPrompt);
+            }
+        } while (notasPrompt !== null);
+
+        console.log("Notas introducidas:", notas.join(', '));
+        console.log("Notas válidas:", clearItems(notas).join(', '));
+
+        const primerSuspensoNota = primerSuspenso(notas);
+        console.log("El primer suspenso es:", primerSuspensoNota !== undefined ? primerSuspensoNota : "No hay suspensos");
+
+        const aprobadosNotas = aprobados(notas);
+        console.log("Hay", aprobadosNotas.length, "aprobados:", aprobadosNotas.join(', '));
+
+        const notaMediaValor = notaMedia(notas);
+        console.log("La nota media es:", notaMediaValor);
+
+        const notasFinales = cambiaNotas(notas);
+        console.log("Las notas finales son:", notasFinales.join(', '));
     </script>
 </body>
 
