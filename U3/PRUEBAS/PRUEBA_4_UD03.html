@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba 4 - UD3</title>
+</head>
+
+<body>
+    <script>
+        // PRUEBA 04_UD3: Ejecuta en la consola cada una de esas funciones
+        let idTimeout = setTimeout(function () {
+            alert('Timeout que se ejecuta al cabo de 1 seg.')
+        }, 1000);
+
+        let i = 1;
+        let idInterval = setInterval(function () {
+            alert('Interval cada 3 seg. Ejecución nº: ' + i++);
+            if (i == 5) {
+                clearInterval(idInterval);
+                alert('Fin de la ejecución del Interval');
+            }
+        }, 3000);
+    </script>
+</body>
+
+</html>

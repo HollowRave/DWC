@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejemplo de DOM</title>
+  <title>Prueba 1 - UD3</title>
 </head>
 <body>
   <h1 class="important">Ejemplo de DOM</h1>
@@ -48,12 +48,24 @@
 </p>
   </form>
   <script>
-    // PRUEBA 01_UD3: Para hacer los ejercicios de este tema descárgate esta página de ejemplo y ábrela en tu navegador. Obtén por consola, al menos de 2 formas diferentes:
+    // PRUEBA 01_UD3: Para hacer los ejercicios de este tema descárgate esta página de 
+    // ejemplo y ábrela en tu navegador. Obtén por consola, al menos de 2 formas diferentes:
 
     // El elemento con id 'input2'
+    console.log(document.getElementById('input2'));
+
     // La colección de párrafos
+    console.log(document.querySelectorAll('p'));
+
     // Lo mismo pero sólo de los párrafos que hay dentro del div 'lipsum'
+    console.log(document.getElementById('lipsum').querySelectorAll('p'));
+
     // El formulario (ojo, no la colección con el formulario sino sólo el formulario)
+    // console.log(document.getElementsByTagName('form')[0])
+    console.log(document.getElementsByTagName('form'));
+
+    console.log(document.querySelector('form'));
+
     // Todos los inputs
     // Sólo los inputs con nombre 'sexo'
     // Los items de lista de la clase 'important' (sólo los LI)
