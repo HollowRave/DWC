@@ -1,18 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repaso 3.3 - Crónometro simple</title>
 </head>
+
 <body>
+    <div class="container">
+        <label for="minutos" class="minutos">minutos</label>     <label for="segundos" class="segundos1" style="margin-left: 11%;">segundos</label> <br>
+        <input type="text" class="minutos" id="minutos">          <input type="text" class="segundos" id="segundos" style="margin-left: 1%;">
+    </div>
     <script>
+
         // A partir de un esqueleto HTML básico, realizar un cronometro de 
         // X minutos de duración. Los minutos se pedirán por pantalla al usuario 
         // antes de arrancar. Solo aceptará valores enteros.
         // Por ejemplo, si de introduce el valor 5, se abrirá en la página 
         // un contador que cuente desde 00:00 hasta 04:59 con una resolución de segundos.
         // Al terminar el tiempo, el cronómetro parará y se pondrá a 0.
+
+        // Pide el limite de tiempo mientras que 'limite' no sea un numero
+        do {
+            limite = prompt('Digite el número de minutos');
+        } while (isNaN(limite));
+
+        // Creamos la variable 'tiempo' que sea un objeto Date
+        let tiempo = new Date;
+
+        // Los objetos Date tienen almacenado la hora actual, entonces para que sea 
+        // cero usamos '.setMinutes' y '.setSeconds'
+        tiempo.setMinutes(0);
+        tiempo.setSeconds(0);
+
+        // Con 'setInterval' se ejecutara la funcion cada intervalo, en este caso a 
+        // cada segundo porque el intervalo es '1000'
+        let interval = setInterval(function () {
+
+            // Creamos las variables minutos y segundos, les asignamos el valor 
+            // de 'tiempo' con los getters
+            let minutos = tiempo.getMinutes();
+            let segundos = tiempo.getSeconds();
+
+            // Si los minutos son menores al limite incrementamos los segundos 
+            // en 1 y lo actualizamos en el documento
+            if (minutos < limite) {
+                tiempo.setSeconds(segundos + 1);
+                document.getElementById('segundos').value = tiempo.getSeconds();
+            }
+
+            // Si los minutos no han llegado al limite pero los segundos han llegado
+            // a 59, incrementamos los minutos en 1 y segundos al ser un objeto Date
+            // al llegar a 59 internamente vuelve a 0
+            if (minutos < limite && segundos == 59) {
+                tiempo.setMinutes(minutos + 1);
+                document.getElementById('minutos').value = tiempo.getMinutes();
+            }
+
+            // Si los minutoas han llegado al limite y los segundos estan a 0
+            // quitamos el intervalo, dejamos los minutos y segundos a 0 en el
+            // HTML y sacamos un alert indicando que hemos llegado al tiempo limite
+            if (minutos == limite && segundos == 0) {
+                clearInterval(interval);
+
+                document.getElementById('minutos').value = 0;
+                document.getElementById('segundos').value = 0;
+
+                alert('Tiempo limite alcanzado')
+            }}, 1000);
     </script>
 </body>
+
 </html>

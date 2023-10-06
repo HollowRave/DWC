@@ -19,30 +19,31 @@
         // Espera a que se cargue la página
         window.addEventListener('load', () => {
             setTimeout(() => {
-                // Abre una nueva ventana (popup)
-                let popupWindow = window.open('', 'popupWindow', 'width=400,height=200,scrollbars=no,toolbar=no,location=no,directories=no,status=no,menubar=no,copyhistory=no');
+                // abrimos una nueva ventana cuando haya pasado 2 segundos 
+                // desde la ejecución de la página
+                let ventana = window.open('', 'ventana', 'width=300,height=100,scrollbars=no,toolbar=no,location=no,directories=no,status=no,menubar=no,copyhistory=no');
 
-                // Crea un mensaje de bienvenida
-                let welcomeMessage = document.createTextNode('¡Bienvenido a nuestro sitio web!');
+                // Creamos un mensaje de bienvenida
+                let bienvenido = document.createTextNode('Bienvenido');
 
-                // Crea un botón "Cerrar"
-                let closeButton = document.createElement('button');
-                closeButton.textContent = 'Cerrar';
+                // Crea un botón 'Cerrar'
+                let cerrar = document.createElement('button');
+                cerrar.textContent = 'Cerrar';
 
-                // Agrega un evento para cerrar la ventana al hacer clic en el botón "Cerrar"
-                closeButton.addEventListener('click', () => {
-                    popupWindow.close();
+                // Agrega un evento para cerrar la ventana al hacer clic en el botón 'Cerrar'
+                cerrar.addEventListener('click', () => {
+                    ventana.close();
                 });
 
-                // Crea un contenedor para el mensaje y el botón "Cerrar"
-                let popupContent = document.createElement('div');
-                popupContent.appendChild(welcomeMessage);
-                popupContent.appendChild(document.createElement('br'));
-                popupContent.appendChild(closeButton);
+                // Crea un contenedor para el mensaje y el botón 'Cerrar' y los añadimos
+                let contenidoVentana = document.createElement('div');
+                contenidoVentana.appendChild(bienvenido);
+                contenidoVentana.appendChild(document.createElement('br'));
+                contenidoVentana.appendChild(cerrar);
 
                 // Agrega el contenido al cuerpo de la ventana emergente
-                popupWindow.document.body.appendChild(popupContent);
-            }, 2000); // Espera 2 segundos antes de mostrar el popup
+                ventana.document.body.appendChild(contenidoVentana);
+            }, 2000); // Espera 2 segundos antes de abrir la ventana
         });
 
     </script>
