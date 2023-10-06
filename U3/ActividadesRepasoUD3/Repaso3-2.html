@@ -33,8 +33,38 @@
 
         onload = modificaDOM;
         function modificaDOM() {
-            // Para completar
+            // Cambiar el estilo del elemento con id "contenido"
+            let contenido = document.getElementById('contenido');
+            contenido.style.backgroundColor = '#00ffff';
+            contenido.style.padding = '5px';
+
+            // Cambiar el estilo de todos los artículos
+            let articulos = document.getElementsByTagName('article');
+            for (let i = 0; i < articulos.length; i++) {
+                articulos[i].style.backgroundColor = '#eeeeee';
+            }
+
+            // Cambiar el estilo de todos los elementos h1
+            let titulosH1 = document.querySelectorAll('h1');
+            for (let i = 0; i < titulosH1.length; i++) {
+                titulosH1[i].style.color = '#555555';
+            }
+
+            // Aplicar estilo de cursiva a todos los párrafos
+            let parrafos = document.querySelectorAll('p');
+            for (let i = 0; i < parrafos.length; i++) {
+                parrafos[i].style.fontStyle = 'italic';
+            }
+
+            // Mostrar la cantidad de párrafos en el span con id "parrafos"
+            let numParrafos = parrafos.length;
+            let spanParrafos = document.getElementById('parrafos');
+            spanParrafos.textContent = numParrafos;
         }
+
+        // Indicamos que al cargar la página se ejecute la función
+        window.onload = modificaDOM;
+
     </script>
 </body>
 

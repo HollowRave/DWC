@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 2 - U3</title>
 </head>
+
 <body>
     <script>
         // EJERCICIO 02_UD3: Haz que a los 2 segundos de abrir la página se abra 
@@ -13,6 +15,37 @@
         // el usuario la cierre haciendo clic en él. 
         // Tendrá el tamaño justo para visualizar el mensaje y no tendrá barras de scroll, 
         // ni de herramientas, ni de dirección... únicamente el mensaje.
+
+        // Espera a que se cargue la página
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                // Abre una nueva ventana (popup)
+                let popupWindow = window.open('', 'popupWindow', 'width=400,height=200,scrollbars=no,toolbar=no,location=no,directories=no,status=no,menubar=no,copyhistory=no');
+
+                // Crea un mensaje de bienvenida
+                let welcomeMessage = document.createTextNode('¡Bienvenido a nuestro sitio web!');
+
+                // Crea un botón "Cerrar"
+                let closeButton = document.createElement('button');
+                closeButton.textContent = 'Cerrar';
+
+                // Agrega un evento para cerrar la ventana al hacer clic en el botón "Cerrar"
+                closeButton.addEventListener('click', () => {
+                    popupWindow.close();
+                });
+
+                // Crea un contenedor para el mensaje y el botón "Cerrar"
+                let popupContent = document.createElement('div');
+                popupContent.appendChild(welcomeMessage);
+                popupContent.appendChild(document.createElement('br'));
+                popupContent.appendChild(closeButton);
+
+                // Agrega el contenido al cuerpo de la ventana emergente
+                popupWindow.document.body.appendChild(popupContent);
+            }, 2000); // Espera 2 segundos antes de mostrar el popup
+        });
+
     </script>
 </body>
+
 </html>

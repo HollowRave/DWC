@@ -78,29 +78,24 @@
         //   'Dato 1 bis' y el INPUT con id 'input1bis' que al cargar la página
         //   tendrá escrito "Hola"
         
-        let Datobis1 = document.createElement('label');
-        Datobis1.innerHTML = "Dato 1 bis";
-        let meterlabel = document.getElementsByTagName('form')[0];
-
-        meterlabel.insertBefore(Datobis1, meterlabel.children[1]);
-        let inputbis = document.createElement('input');
-        inputbis.id = 'innput1bis';
-        inputbis.placeholder = 'Hola';
-
-        Datobis1.appendChild(inputbis);
-        Datobis1.innerHTML += '<br>';
+        // Guardamos el formulario en una variable
+        let form = document.querySelector('form');
         
-        // let form = document.getElementsByTagName('form');
-        
-        // let dato1Bis = document.createElement('label');
-        // datoBis1.innerHTML = "Dato 1 bis";
+        // Creamos un elemento 'label' y le a asignamos el texto
+        let dato1Bis = document.createElement('label');
+        dato1Bis.innerHTML = "Dato 1 bis ";
 
-        // let input1Bis = document.createElement('input');
-        // input1Bis.id = 'input1bis';
-        // input1Bis.placeholder = 'Hola';
+        // Creamos un nuevo elemento 'input' y le asigna un id y un placeholder
+        let input1Bis = document.createElement('input');
+        input1Bis.id = 'input1bis';
+        input1Bis.placeholder = 'Hola';
 
-        // dato1Bis.appendChild(input1Bis);
-        // form.insertBefore(dato1Bis, form.children[1]);
+        // Añadimos el input y un 'br' al 'label'
+        dato1Bis.appendChild(input1Bis);
+        dato1Bis.appendChild(document.createElement('br'));
+
+        // Insertamos el 'label' dentro del 'form' en la posicion anterior al 'input2'
+        form.insertBefore(dato1Bis, form.children[1]);
     </script>
 </body>
 

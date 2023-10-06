@@ -31,13 +31,53 @@
     // La cadena acaba por 'U'
 
 
-    // indicamos que al cargar la página se ejecute la función
-    "cadenas"
-    onload = cadenas
+    // indicamos que al cargar la página se ejecute la función "cadenas"
+    onload = cadenas();
+    
     function cadenas() {
         // Pedimos una cadena al usuario
         let cadena = prompt("Escribe una cadena de texto");
-        // A completar...
+
+        // Comprobar si la cadena está en mayúsculas, minúsculas o combinación
+        let esMayusculas = cadena === cadena.toUpperCase();
+        let esMinusculas = cadena === cadena.toLowerCase();
+        let tipoCadena = '';
+
+        if (esMayusculas && esMinusculas) {
+            tipoCadena = 'La cadena tiene mayúsculas y minúsculas';
+        } else if (esMayusculas) {
+            tipoCadena = 'La cadena está en mayúsculas';
+        } else if (esMinusculas) {
+            tipoCadena = 'La cadena está en minúsculas';
+        }
+
+        // Obtener el carácter en la tercera posición
+        let tercerCaracter = cadena.length >= 3 ? cadena[2] : 'No hay tercer carácter';
+
+        // Obtener la longitud de la cadena
+        let longitudCadena = cadena.length;
+
+        // Obtener la posición de la primera aparición de 'a'
+        let primeraAparicion = cadena.indexOf('a') !== -1 ? cadena.indexOf('a') + 1 : 'No aparece el carácter \'a\'';
+
+        // Obtener la posición de la última aparición de 'a'
+        let ultimaAparicion = cadena.lastIndexOf('a') !== -1 ? cadena.lastIndexOf('a') + 1 : 'No aparece el carácter \'a\'';
+
+        // Obtener el primer y último carácter de la cadena
+        let primerCaracter = cadena.length > 0 ? cadena[0] : 'La cadena está vacía';
+        let ultimoCaracter = cadena.length > 0 ? cadena[cadena.length - 1] : 'La cadena está vacía';
+
+        // Mostrar la información en párrafos
+        let output = document.createElement('div');
+        output.innerHTML = `<p>${tipoCadena}</p>
+                            <p>La posición 3 la ocupa el carácter: ${tercerCaracter}</p>
+                            <p>La cadena tiene ${longitudCadena} caracteres</p>
+                            <p>El carácter 'a' aparece por primera vez en la posición ${primeraAparicion}</p>
+                            <p>El carácter 'a' aparece por última vez en la posición ${ultimaAparicion}</p>
+                            <p>La cadena empieza por '${primerCaracter}'</p>
+                            <p>La cadena acaba por '${ultimoCaracter}'</p>`;
+
+        document.body.appendChild(output);
     }
 
 </script>
