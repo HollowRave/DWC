@@ -68,6 +68,13 @@
         // EJERCICIO 03_UD4: Pon desde la consola un escuchador al BODY de la página de ejemplo 
         // para que al pulsar cualquier tecla nos muestre en un alert el key y el keyCode de 
         // la tecla pulsada. Pruébalo con diferentes teclas.
+
+        document.body.addEventListener("keydown", function(event){
+            let key = event.key;
+            let keyCode = event.keyCode;
+
+            alert("Tecla pulsada: " + key + " Código de la tecla: " + keyCode);
+        });
     </script>
 </body>
 

@@ -69,6 +69,15 @@
         // de la página de ejemplo de DOM para que al hacer click se muestre 
         // un alert con 'Click sobre botón 1'. 
         // Ponle otro para que al pasar el ratón sobre él se muestre 'Entrando en botón 1'.
+        
+        document.getElementById('button1').addEventListener('click', function () {
+            alert('Click sobre botón 1');
+        });
+
+        document.getElementById('button1').addEventListener('mouseover', function () {
+            alert('Entrando en botón 1');
+        });
+
     </script>
 </body>
 
