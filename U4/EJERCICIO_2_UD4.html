@@ -10,7 +10,7 @@
 <body>
     <h1 class="important">Ejemplo de DOM</h1>
     <p>Vamos a ver una página de ejemplo para poder "jugar" con el DOM</p>
-    <div id="mousePosition"></div>
+    <div id="posicionRaton"></div>
     <h2>Algunos párrafos</h2>
     <div id="lipsum">
         <p>
@@ -73,17 +73,17 @@
 
         document.body.addEventListener('mousemove', function (event) {
             // Obtén la posición del ratón en relación con la ventana del navegador
-            let mouseX = event.clientX;
-            let mouseY = event.clientY;
+            let ratonX = event.clientX;
+            let ratonY = event.clientY;
 
             // Obtén la posición del ratón en relación con la página
-            let pageX = event.pageX;
-            let pageY = event.pageY;
+            let posicionPaginaX = event.pageX;
+            let posicionPaginaY = event.pageY;
 
             // Actualiza el contenido del div con la posición del ratón
-            var mousePositionDiv = document.getElementById('mousePosition');
-            mousePositionDiv.innerHTML = 'Posición del ratón (ventana): X=' + mouseX + ', Y=' + mouseY +
-                '<br>Posición del ratón (página): X=' + pageX + ', Y=' + pageY;
+            var divPosicionRaton = document.getElementById('posicionRaton');
+            divPosicionRaton.innerHTML = 'Posición del ratón respecto a la ventana: X=' + ratonX + ', Y=' + ratonY +
+                '<br>Posición del ratón respecto a la página: X=' + posicionPaginaX + ', Y=' + posicionPaginaY;
         });
     </script>
 </body>

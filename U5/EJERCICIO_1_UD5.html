@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - UD5</title>
+</head>
+<body>
+    <script>
+        // PRUEBA 1_UD5: Crea en la consola dos variables fecNac1 y fecNac2 que contengan 
+        // tu fecha de nacimiento. 
+        // La primera la creas pasandole una cadena y la segunda pasándole año, mes y día
+        let fecNac1 = new Date('2004-06-04');
+        let fecNac2 = new Date(2004, 5, 4);
+
+        // EJERCICIO 1_UD5: Realiza en la consola los siguientes ejercicios 
+        // (usa las variables que creaste antes)
+
+        // - muestra el día de la semana en que naciste
+        console.log(fecNac1.getDay());
+
+        // - modifica fecNac1 para que contenga la fecha de tu cumpleaños de este año 
+        //   (cambia sólo el año)
+        fecNac1.setFullYear(2023);
+        console.log(fecNac1.toLocaleDateString());
+
+        // - muestra el día de la semana de tu cumpleaños de este año
+        console.log(fecNac1.getDay());
+
+        // - calcula el nº de días que han pasado desde que naciste hasta hoy
+        let hoy = new Date();
+        let msNac = hoy - fecNac2;
+
+        let diasNac = (((msNac/1000)/60)/60)/24;
+        console.log("Han pasado " + diasNac + " días desde el " + fecNac1.toLocaleDateString());
+
+    </script>
+</body>
+</html>
