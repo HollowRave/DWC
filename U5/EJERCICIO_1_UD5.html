@@ -17,23 +17,52 @@
         // (usa las variables que creaste antes)
 
         // - muestra el día de la semana en que naciste
-        console.log(fecNac1.getDay());
+        console.log("Nací un " + diasSemana(fecNac1));
+        //console.log(fecNac1.getDay());
 
         // - modifica fecNac1 para que contenga la fecha de tu cumpleaños de este año 
         //   (cambia sólo el año)
         fecNac1.setFullYear(2023);
-        console.log(fecNac1.toLocaleDateString());
+        console.log("La fecha de mi cumple este año es " + fecNac1.toLocaleDateString());
 
         // - muestra el día de la semana de tu cumpleaños de este año
-        console.log(fecNac1.getDay());
+        console.log("Este año mi cumpleaños cae un " + diasSemana(fecNac1));
+        //console.log(fecNac1.getDay());
 
         // - calcula el nº de días que han pasado desde que naciste hasta hoy
         let hoy = new Date();
         let msNac = hoy - fecNac2;
 
         let diasNac = (((msNac/1000)/60)/60)/24;
-        console.log("Han pasado " + diasNac + " días desde el " + fecNac1.toLocaleDateString());
+        console.log("Han pasado " + Math.round(diasNac, 2) + " días desde el " + fecNac2.toLocaleDateString());
 
+
+        //Esta función al recibir un objeto de tipo Date usa la variable '.getDay' y devuelve el día correspondiente al número.
+        function diasSemana(dia){
+            switch(dia.getDay()){
+                    case 0:
+                        return "Domingo";
+                    break;
+                    case 1:
+                        return "Lunes";
+                    break;
+                    case 2:
+                        return "Martes";
+                    break;
+                    case 3:
+                        return "Miércoles";
+                    break;
+                    case 4:
+                        return "Jueves";
+                    break;
+                    case 5:
+                        return "Viernes";
+                    break;
+                    case 6:
+                        return "Sábado";
+                    break;
+            }
+        }
     </script>
 </body>
 </html>
