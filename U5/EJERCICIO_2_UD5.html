@@ -11,9 +11,32 @@
         // y pruébala con distintas cadenas:
 
         // - un código postal
+        let cp = /^\d{5}$/;
+
         // - un NIF formado por 8 números, un guión y una letra mayúscula o minúscula
+        let nif = /^\d{8}-[a-zA-Z]$/;
+
         // - un número de teléfono y aceptamos 2 formatos: XXX XX XX XX o XXX XXX XXX. El primer 
         //   número debe ser un 6, un 7, un 8 o un 9.
+        let telf = /^[6-9]\d{2}\s\d{2}\s\d{2}\s\d{2}$|^[6-9]\d{2}\s\d{3}\s\d{3}$/;
+
+        //COMPROBCIONES
+        let cp1 = "46195";
+        let cp2 = "123456";
+        console.log("Este codigo postal es correcto: " + cp1 + " " + cp.test(cp1));
+        console.log("Este codigo postal es incorrecto: " + cp2 + " " + cp.test(cp2));
+
+        let nif1 = "76544345-A";
+        let nif2 = "98753-B";
+        console.log("Este NIF es correcto: " + nif1 + " " + nif.test(nif1));
+        console.log("Este NIF postal es incorrecto: " + nif2 + " " + nif.test(nif2));
+
+        let telf1 = "687 02 08 67";
+        let telf2 = "923 543 678";
+        let telf3 = "345 653 543";
+        console.log("Este teléfono es correcto: " + telf1 + " " + telf.test(telf1));
+        console.log("Este teléfono es correcto: " + telf2 + " " + telf.test(telf2));
+        console.log("Este teléfono es correcto: " + telf3 + " " + telf.test(telf3));
     </script>
 </body>
 </html>
