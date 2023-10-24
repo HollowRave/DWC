@@ -62,6 +62,23 @@
         //   al bloque contrario.
         // - Deberemos poder hacerlo de forma indefinida, por lo que al crear el elemento y
         //   pasarlo al bloque contrario, deberemos añadir el Listener correspondiente otra vez.
+
+        onload = function(){
+            document.body.addEventListener("dblclick", f);
+
+            function f(e){
+                let section1 = document.getElementsByTagName("section")[0];
+                let section2 = document.getElementsByTagName("section")[1];
+                let item = e.target;
+                let sectionPare = (item.parentNode).parentNode;
+
+                if(item.tagName == 'P' && item.parentNode == section1){
+
+                }else if(){
+
+                }
+            }
+        }
     </script>
 </body>
 
