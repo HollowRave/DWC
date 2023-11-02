@@ -1,6 +1,11 @@
 //Promesas
 const API = 'https://dog.ceo/api/breeds/image/random';
 
+window.addEventListener('load', function(){
+    document.getElementsByClassName('imagen').addEventListener('load', (event) =>{
+        getImage().then()
+    })
+})
 
 function getImage(){
     return new Promise(function(resolve, reject){

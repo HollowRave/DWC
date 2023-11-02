@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello world</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>Enlace unidireccional: interpolación</h3>
+        <p>{{ message }}</p>
+        <br>
+
+        <h3>Enlazar a un atributo: v-bind</h3>
+        <p v-bind:title="message">
+            Hover your mouse over me for a few seconds to see my dynamically bound title!
+        </p>
+
+        <p :title="message">No cal posar el v-bind davant, aço es equivalent a lo de dalt.</p>
+        <br>
+
+        <h3>Enlace bidireccional: v-model</h3>
+        <p>El valor actual de la variable 'message' es <strong>{{ message }}</strong></p>
+        <label>Si cambias el valor del input se cambia la variable:</label>
+        <input v-model="message">
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="01-HelloWorld.js"></script>
+</body>
+
+</html>
