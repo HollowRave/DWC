@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso 1 UD9</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>Cosas a hacer este año:</h2>
+        <ul>
+            <li v-for="elem in todos" v-model="vacio">
+                {{ elem.title }}
+            </li>
+        </ul>
+        <p v-if="!todos.length"> No hay tareas que mostrar</p>
+        <input v-model="input"><button v-on:click="añadir">Añadir</button>
+        <br>
+        <button v-on:click="delTodos">Borrar toda la lista</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="Repaso9-1.js"></script>
+</body>
+</html>

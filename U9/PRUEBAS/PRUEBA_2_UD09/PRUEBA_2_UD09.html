@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba 2 UD9</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            Cosas a hacer este año:
+        </p>
+        <ul>
+            <li v-for="elem in todos">
+                {{ elem.title }}
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="PRUEBA_2_UD09.js"></script>
+    <!-- Si no ponemos los scripts después del </div> no funciona -->
+</body>
+</html>

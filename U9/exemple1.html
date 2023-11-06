@@ -23,6 +23,11 @@
         <p>El valor actual de la variable 'message' es <strong>{{ message }}</strong></p>
         <label>Si cambias el valor del input se cambia la variable:</label>
         <input v-model="message">
+
+        <h3>Directivas Básicas</h3>
+        <h4>v-text</h4>
+        <p v-text="message"></p>
+        <p>Es lo mismo que la interpolación</p>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script src="01-HelloWorld.js"></script>

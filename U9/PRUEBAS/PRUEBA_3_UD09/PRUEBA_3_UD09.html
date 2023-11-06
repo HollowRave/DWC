@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba 3 UD9</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            Cosas a hacer este año:
+        </p>
+        <ul>
+            <li v-for="elem in todos">
+                {{ elem.title }}
+            </li>
+        </ul>
+        <button v-on:click="delTodos"><!-- '@click' hace lo mismo que 'v-on:click' -->
+            Borrar lista
+        </button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="PRUEBA_3_UD09.js"></script>
+</body>
+</html>
