@@ -12,7 +12,10 @@
         <h2>Cosas a hacer este año:</h2>
         <ul>
             <li v-for="elem in todos" v-model="vacio">
-                {{ elem.title }}
+                <input type="checkbox" v-model="elem.done">
+                <del v-if="elem.done">{{elem.title}}</del>
+                <label v-else>{{elem.title}}</label>
+                
             </li>
         </ul>
         <p v-if="!todos.length"> No hay tareas que mostrar</p>
