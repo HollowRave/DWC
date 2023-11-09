@@ -44,12 +44,17 @@ Vue.createApp({
     },
     methods:{
         añadir(){
-            this.todos.push({ id: this.todos.length+1, title: this.input, done: false });
+            if(this.input && isNaN(this.input)){
+                this.todos.push({ id: this.todos.length+1, title: this.input, done: false });  
+            }
         },
         delTodos(){
             if(confirm('Deseas borrar la lista  de cosas a hacer?')){
                 this.todos = [];
             }
+        },
+        dblDel(indice){
+            this.todos.splice(indice, 1);
         }
     }
 }).mount('#app')
