@@ -1,27 +1,80 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <div id="contenido">
-          <h1>Ejercicio 6.1 Petición GET</h1>
-					<article>
-						<div class="imagen">
-      						
-          	</div>
-          </article>
-        </div>
-        
-        <script src="getv1.js">
-          // Se pide completar el archivo getv1.js para incluir una imagen random "perros" que 
-          // se obtendrán a partir del siguiente recurso mediante una 
-          // petición GET: https://dog.ceo/api/breeds/image/random
-          // Se incluirá la imagen obtenida dentro del div imagen.
-          // El ejercicio se debe realizar de tres formas posibles:
 
-          //   Promesas -> getv1.js
-          //   API Fetch -> getv2.js
-          //   async / await -> getv3.js
-        </script>
-    </body>
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <div id="contenido">
+    <h1>Ejercicio 6.1 Petición GET</h1>
+    <article>
+      <div class="imagen">
+
+      </div>
+    </article>
+  </div>
+
+  <script src="getv3.js">
+    // Se pide completar el archivo getv1.js para incluir una imagen random "perros" que 
+    // se obtendrán a partir del siguiente recurso mediante una
+    // petición GET: https://dog.ceo/api/breeds/image/random
+    // Se incluirá la imagen obtenida dentro del div imagen.
+    // El ejercicio se debe realizar de tres formas posibles:
+
+    // getImage() METODO DE LAS DISTINTAS FORMAS
+
+    //   Promesas -> getv1.js
+    // // Función que realiza una petición GET para obtener una URL de imagen aleatoria de perros
+    // function getImage() {
+    //     return new Promise(function (resolve, reject) {
+    //         let peticion = new XMLHttpRequest();
+    //         peticion.open('GET', API);
+    //         peticion.send();
+    //         peticion.addEventListener('load', function () {
+    //             if (peticion.status == 200) {
+    //                 let imageUrl = JSON.parse(peticion.responseText).message;
+    //                 resolve(imageUrl);
+    //             } else {
+    //                 reject('Error ' + this.status + ' (' + this.statusText + ') en la petición');
+    //             }
+    //         });
+    // }
+
+    //   API Fetch -> getv2.js
+    // function getImage() {
+    //     return fetch(API)
+    //         .then(response => {
+    //             if (!response.ok) {
+    //                 throw new Error(`HTTP error! Status: ${response.status}`);
+    //             }
+    //             return response.json();
+    //         })
+    //         .then(data => data.message);
+    // }
+
+    //   async / await -> getv3.js
+    // async function getImage() {
+    // const response = await fetch(API);
+    // if (!response.ok) {
+    //     throw new Error(`HTTP error! Status: ${response.status}`);
+    // }
+    // const data = await response.json();
+    // return data.message;
+    // }
+
+    //EJECUTAR CODIGO CUANDO CARGUE LA PÁGINA Y METER LA IMAGEN EN EL DIV (funciona para los tres)
+
+    // window.addEventListener('load', function () {
+    //   let imagenDiv = document.querySelector('.imagen');
+    //   getImage().then(function (imageUrl) {
+    //     let img = document.createElement('img');
+    //     img.src = imageUrl;
+    //     imagenDiv.appendChild(img);
+    //   }).catch(function (error) {
+    //     console.error('Error:', error);
+    //   });
+    // });
+  </script>
+</body>
+
 </html>
