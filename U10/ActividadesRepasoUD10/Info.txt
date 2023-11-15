@@ -1,0 +1,3 @@
+Para iniciar el vue server entra a la carpeta correspondiente y escribe el comando 'npm run serve'.
+Para crear uno nuevo  escribe vue 'create [NOMBRE]', luego entra con 'cd' a la carpeta creada y usa 
+'npm run serve'.
