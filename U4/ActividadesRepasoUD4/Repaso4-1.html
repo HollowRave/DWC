@@ -1,11 +1,13 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <style>
-        body{
+        body {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
-        section{
+
+        section {
             display: block;
             float: left;
             width: 40%;
@@ -13,28 +15,26 @@
             height: 200px;
             overflow-y: auto;
             overflow-x: hidden;
-            margin: 10px;   
+            margin: 10px;
         }
 
-        h3{
+        h3 {
             margin: 0px;
             background: #2196f3;
             width: 100%;
         }
 
-        #contenedor>section>div>p{
+        #contenedor>section>div>p {
             margin: 0px;
         }
- 
-        #contenedor>section>div>p:hover{
+
+        #contenedor>section>div>p:hover {
             background: #bbdefb;
             width: 100%;
             cursor: pointer;
         }
-
     </style>
 </head>
-
 <body>
     <div id="contenedor">
         <section>
@@ -45,7 +45,6 @@
                 <p>item 3</p>
             </div>
         </section>
-
         <section>
             <h3>Bloque 2</h3>
             <div>
@@ -53,33 +52,34 @@
             </div>
         </section>
     </div>
+
     <script>
-        // Repaso 4.1 - Paso de elementos
-        // Se pide añadir una función que se ejecute cuando cargue la página y que dé 
-        // la siguiente funcionalidad a la misma:
-        //
-        // - Cuando hagamos doble click en un item de dentro del bloque, este pasará automáticamente
-        //   al bloque contrario.
-        // - Deberemos poder hacerlo de forma indefinida, por lo que al crear el elemento y
-        //   pasarlo al bloque contrario, deberemos añadir el Listener correspondiente otra vez.
+        // Esperar a que la página se cargue completamente
+        window.onload = function () {
+            // Agregar un escuchador de eventos para el doble clic en todo el body
+            document.body.addEventListener("dblclick", moveItem);
 
-        onload = function(){
-            document.body.addEventListener("dblclick", f);
-
-            function f(e){
-                let section1 = document.getElementsByTagName("section")[0];
-                let section2 = document.getElementsByTagName("section")[1];
+            // Función para manejar el movimiento del elemento al bloque contrario
+            function moveItem(e) {
+                // Obtener el elemento en el que se hizo doble clic
                 let item = e.target;
-                let sectionPare = (item.parentNode).parentNode;
 
-                // if(item.tagName == 'P' && item.parentNode == section1){
+                // Verificar si el elemento es un párrafo (p)
+                if (item.tagName === 'P') {
+                    // Obtener el bloque (section) actual
+                    let sourceSection = item.closest("section");
 
-                // }else if(){
+                    // Determinar el bloque de destino
+                    let destinationSection = (sourceSection.nextElementSibling) ? sourceSection.nextElementSibling : sourceSection.previousElementSibling;
 
-                // }
+                    // Verificar si hay un bloque de destino
+                    if (destinationSection) {
+                        // Mover el párrafo al bloque contrario
+                        destinationSection.querySelector("div").appendChild(item);
+                    }
+                }
             }
-        }
+        };
     </script>
 </body>
-
 </html>
